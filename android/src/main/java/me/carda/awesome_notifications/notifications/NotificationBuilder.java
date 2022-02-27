@@ -34,6 +34,7 @@ import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.text.HtmlCompat;
 import me.carda.awesome_notifications.AwesomeNotificationsPlugin;
 import me.carda.awesome_notifications.Definitions;
+import me.carda.awesome_notifications.R;
 import me.carda.awesome_notifications.notifications.broadcastReceivers.DismissedNotificationReceiver;
 import me.carda.awesome_notifications.notifications.broadcastReceivers.KeepOnTopActionReceiver;
 import me.carda.awesome_notifications.notifications.enumerators.ActionButtonType;
@@ -368,7 +369,7 @@ public class NotificationBuilder {
     }
 
     private static Notification getNotificationBuilderFromModel(Context context, NotificationModel notificationModel) throws AwesomeNotificationException {
-
+RemoteViews collapsedView = new RemoteViews(context.getPackageName(), R.layout.notification_collapsed);
         NotificationChannelModel channel = ChannelManager.getChannelByKey(context, notificationModel.content.channelKey);
 
         if (channel == null || !ChannelManager.isChannelEnabled(context, notificationModel.content.channelKey))
@@ -421,8 +422,9 @@ public class NotificationBuilder {
         setBadge(context, notificationModel, channel, builder);
 
         setNotificationPendingIntents(notificationModel, pendingActionIntent, pendingDismissIntent, builder);
-
+builder.setCustomContentView(collapsedView);
         Notification androidNotification = builder.build();
+
         if(androidNotification.extras == null)
             androidNotification.extras = new Bundle();
 
