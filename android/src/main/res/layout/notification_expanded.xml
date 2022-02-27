@@ -10,8 +10,11 @@
         android:id="@+id/expandedNotificationImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@android:color/holo_red_light" />
+        android:background="#FFFFFF"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:src="@android:color/holo_red_light"
+        tools:src="@android:color/holo_red_light" />
 
     <TextView
         android:id="@+id/expandedNotificationTitle"
@@ -22,5 +25,6 @@
         android:padding="10dp"
         android:shadowColor="#000000"
         android:text="Checkout these new articles we found for you on Friz , Click to see more."
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#574341" />
 </RelativeLayout>

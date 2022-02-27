@@ -431,13 +431,20 @@ public class NotificationBuilder {
                 context,
                 notificationModel.content.bigPicture,
                 false);
+        Bitmap smallImage  =BitmapUtils.getBitmapFromSource(
+                context,
+                notificationModel.content.bigPicture,
+                true);
 
         if (image != null)
             expandedView.setImageViewBitmap(R.id.expandedNotificationImage,image);
+        if (smallImage != null)
+            collapsedView.setImageViewBitmap(R.id.collapsedNotificationImage,smallImage);
+
         //setting expanded views
         if (notificationModel.content.title != null) {
             expandedView.setTextViewText(R.id.expandedNotificationTitle,notificationModel.content.title);
-            expandedView.setTextViewText(R.id.collapsedNotificationTitle,notificationModel.content.title);
+            collapsedView.setTextViewText(R.id.collapsedNotificationTitle,notificationModel.content.title);
         }
         //setting collapsed views
         builder.setCustomContentView(collapsedView);
