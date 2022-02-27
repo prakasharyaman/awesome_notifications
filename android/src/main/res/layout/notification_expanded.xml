@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="256dp"
     android:padding="5dp">
 
     <ImageView
         android:id="@+id/expandedNotificationImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="center"
-        android:src="@drawable/background" />
+        android:src="@android:color/holo_red_light" />
 
     <TextView
         android:id="@+id/expandedNotificationTitle"
@@ -20,6 +21,6 @@
         android:layout_alignBottom="@id/expandedNotificationImage"
         android:padding="10dp"
         android:shadowColor="#000000"
-        android:text="India Explains Move To Abstain From UN Vote On Ukraine Invasion "
+        android:text="Checkout these new articles we found for you on Friz , Click to see more."
         android:textColor="#FFFFFF" />
 </RelativeLayout>

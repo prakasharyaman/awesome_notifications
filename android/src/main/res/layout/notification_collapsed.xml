@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/collapsedNotificationImage"
-        android:padding="5dp"
         android:gravity="left"
-        android:text="India Explains Move To Abstain From UN Vote On Ukraine Invasion " />
+        android:padding="5dp"
+        android:text="Checkout these new articles we found for you on Friz , Click to see more." />
 
 
 

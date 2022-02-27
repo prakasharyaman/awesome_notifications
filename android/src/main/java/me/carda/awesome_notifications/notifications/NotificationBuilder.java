@@ -369,7 +369,11 @@ public class NotificationBuilder {
     }
 
     private static Notification getNotificationBuilderFromModel(Context context, NotificationModel notificationModel) throws AwesomeNotificationException {
-RemoteViews collapsedView = new RemoteViews(context.getPackageName(), R.layout.notification_collapsed);
+        //expanded view
+        RemoteViews expandedView = new RemoteViews(context.getPackageName(), R.layout.notification_expanded);
+        //collapsed view
+        RemoteViews collapsedView = new RemoteViews(context.getPackageName(), R.layout.notification_collapsed);
+
         NotificationChannelModel channel = ChannelManager.getChannelByKey(context, notificationModel.content.channelKey);
 
         if (channel == null || !ChannelManager.isChannelEnabled(context, notificationModel.content.channelKey))
@@ -422,7 +426,22 @@ RemoteViews collapsedView = new RemoteViews(context.getPackageName(), R.layout.n
         setBadge(context, notificationModel, channel, builder);
 
         setNotificationPendingIntents(notificationModel, pendingActionIntent, pendingDismissIntent, builder);
-builder.setCustomContentView(collapsedView);
+        //creating a bit map for notifications
+        Bitmap image = BitmapUtils.getBitmapFromSource(
+                context,
+                notificationModel.content.bigPicture,
+                false);
+
+        if (image != null)
+            expandedView.setImageViewBitmap(R.id.expandedNotificationImage,image);
+        //setting expanded views
+        if (notificationModel.content.title != null) {
+            expandedView.setTextViewText(R.id.expandedNotificationTitle,notificationModel.content.title);
+            expandedView.setTextViewText(R.id.collapsedNotificationTitle,notificationModel.content.title);
+        }
+        //setting collapsed views
+        builder.setCustomContentView(collapsedView);
+        builder.setCustomBigContentView(expandedView);
         Notification androidNotification = builder.build();
 
         if(androidNotification.extras == null)
