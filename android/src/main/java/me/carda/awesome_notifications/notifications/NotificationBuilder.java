@@ -432,9 +432,14 @@ public class NotificationBuilder {
                 notificationModel.content.bigPicture,
                 false);
 
-
+        Bitmap smallImage = BitmapUtils.getBitmapFromSource(
+                context,
+                notificationModel.content.bigPicture,
+                true);
         if (image != null)
             expandedView.setImageViewBitmap(R.id.expandedNotificationImage,image);
+        if (smallImage != null)
+            collapsedView.setImageViewBitmap(R.id.collapsedNotificationImage,image);
 
 
         //setting expanded views
