@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="256dp"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Friz"
+            style="@style/TextAppearance.Compat.Notification.Title"
+            android:textColor="#297A9B"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/expandedNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="Checkout these new articles we found for you on Friz , Click to see more."
+        style="@style/TextAppearance.Compat.Notification.Title"/>
 
     <ImageView
         android:id="@+id/expandedNotificationImage"
@@ -14,17 +50,5 @@
         android:cropToPadding="true"
         android:scaleType="centerCrop"
         android:src="@android:color/holo_red_light"
-        tools:src="@android:color/holo_red_light" />
-
-    <TextView
-        android:id="@+id/expandedNotificationTitle"
-        style="@style/TextAppearance.Compat.Notification.Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/expandedNotificationImage"
-        android:padding="10dp"
-        android:shadowColor="#000000"
-        android:text="Checkout these new articles we found for you on Friz , Click to see more."
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#574341" />
-</RelativeLayout>
+        tools:src="@android:color/holo_red_light"/>
+</LinearLayout>

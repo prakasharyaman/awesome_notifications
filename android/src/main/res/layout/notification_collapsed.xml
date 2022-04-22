@@ -9,9 +9,10 @@
     <ImageView
         android:id="@+id/collapsedNotificationImage"
         android:layout_width="64dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_height="64dp"
+        android:background="#FFFFFF"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
         tools:src="@mipmap/ic_launcher" />
 
@@ -22,6 +23,8 @@
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/collapsedNotificationImage"
         android:gravity="left"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:padding="5dp"
         android:text="Checkout these new articles we found for you on Friz , Click to see more." />
 
