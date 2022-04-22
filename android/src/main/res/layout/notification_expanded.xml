@@ -27,7 +27,6 @@
             android:maxLines="2"
             android:text="Friz"
             style="@style/TextAppearance.Compat.Notification.Title"
-            android:textColor="#297A9B"
             android:textSize="12dp" />
 
     </LinearLayout>
